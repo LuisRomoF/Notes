@@ -14,8 +14,7 @@
 * [Exceptions and errors](#Exceptions)
 * [Logging](#Logging)
 * [JSON](#JSON)
-* [Random Numbers](#)
-* [Decorators](#)
+* [Decorators](#Decorators)
 * [Generators](#)
 * [Threading vs Multiprocessing](#)
 * [Multithreading](#)
@@ -304,4 +303,13 @@ import json
 
 person = {'name':'Luis', 'Age':25, 'City': 'Mexico city'}
 personJSON = json.dumps(person)
+```
+
+[Back to Index](#)
+<center> <h1 id="Decorators"> Decorators  </h1> </center>
+A decorator is a function that takes another function as argument and modifies the behavior of the function without modifying it.
+ 
+
+```python
+
 ```
