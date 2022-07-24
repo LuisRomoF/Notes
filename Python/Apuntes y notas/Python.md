@@ -4,6 +4,7 @@
 ### Modules
 * [Sys Module](#Sys)
 * [Timeit Module](#Timeit)
+* [Regular Expression](#Regex) 
 ### Data types
 * [Lists](#Lists)
 * [Tuples](#Tuples)
@@ -15,7 +16,8 @@
 * [Logging](#Logging)
 * [JSON](#JSON)
 * [Decorators](#Decorators)
-* [Generators](#)
+* [Generators](#Generators)
+* [Yield Statement](#Yield)
 * [Threading vs Multiprocessing](#)
 * [Multithreading](#)
 * [Multiprocessing](#)
@@ -52,6 +54,25 @@ Output:
     #time it took to run
     
 ```
+<center> <h1 id="Regex"> Regular Expression </h1> </center>
+A Regular Expression (RegEx) is a sequence of characters that defines a search pattern.  
+
+<br/>
+MetaCharacters: are characters that are interpreted in a special way by a RegEx engine.
+
+* []  Square brackets: Square brackets specifies a set of characters you wish to match.
+* .  Period: A period matches any single character (except newline '\n').
+* ^  Caret: The caret symbol ^ is used to check if a string starts with a certain character.
+* \$  Dollar: The dollar symbol $ is used to check if a string ends with a certain character.
+* \* Star: The star symbol * matches zero or more occurrences of the pattern left to it.
+* \+ Plus: The plus symbol + matches one or more occurrences of the pattern left to it.
+
+
+```python
+
+import re
+```
+
 # Data Types
 [Back to Index](#)
 <center> <h1 id="Lists"> Lists  </h1> </center>
@@ -307,9 +328,92 @@ personJSON = json.dumps(person)
 
 [Back to Index](#)
 <center> <h1 id="Decorators"> Decorators  </h1> </center>
-A decorator is a function that takes another function as argument and modifies the behavior of the function without modifying it.
+A decorator is a function that takes another function as argument and extends the behavi or of the function without modifying it.
  
+```python
+Input:
+    def start_end_decorator(func):
+        def wrapper(*args, **kwargs):
+            print('Start')
+            func(*args, **kwargs)
+            print('end')
+        return wrapper
+
+    # The @ sign calls the start_end_decorator function as a decorator for the print_name function and modifies its behavior 
+    @start_end_decorator
+    def print_name():
+        print('name')
+
+    print_name()
+
+Output:
+     Start
+     name
+     end
+```
+[Back to Index](#)
+<center> <h1 id="Generators"> Generators  </h1> </center>
+Generator functions are a special kind of function that use the 'yield' statement instead of the 'return' statement. They generate lazy iterators. These are objects that you can loop over like a list. However, unlike lists, lazy iterators do not store their contents in memory.
 
 ```python
+# Memory benefit of using Generators
+Input:
+    import sys
 
+    def firstn(n):
+        nums = []
+        num = 0
+        while num < n:
+            nums.append(num)
+            num += 1
+        return nums
+
+    def firstn_generators(n):
+        num = 0
+        while num < n:
+            yield num
+            num += 1
+
+    print(sys.getsizeof(firstn(10000)))
+    print(sys.getsizeof(firstn_generators(10000)))
+Output:
+    87616
+    112
+
+ # Generating an infinite sequence, however, will require the use of a generator, since your computer memory is finite
+def infinite_sequence():
+    num = 0
+    while True:
+        yield num
+        num += 1
+```
+
+[Back to Index](#)
+<center> <h1 id="Yield"> Yield Statement </h1> </center>
+The yield statement suspends function’s execution and sends a value back to the caller, but retains enough state to enable function to resume where it is left off.
+When resumed, the function continues execution immediately after the last yield run.
+
+This allows its code to produce a series of values over time, rather than computing them at once and sending them back like a list.
+
+We should use yield when we want to iterate over a sequence, but don’t want to store the entire sequence in memory.
+
+```python
+Input:
+    # A Simple Python program to demonstrate working
+    # of yield
+    
+    # A generator function that yields 1 for the first time,
+    # 2 second time and 3 third time
+    def simpleGeneratorFun():
+        yield 1
+        yield 2
+        yield 3
+    
+    # Driver code to check above generator function
+    for value in simpleGeneratorFun(): 
+        print(value)
+Output:
+    1
+    2
+    3
 ```
