@@ -18,13 +18,9 @@
 * [Decorators](#Decorators)
 * [Generators](#Generators)
 * [Yield Statement](#Yield)
-* [Threading vs Multiprocessing](#)
-* [Multithreading](#)
-* [Multiprocessing](#)
-* [Function Arguments](#)
-* [Shallow vs Deep Copying](#)
-* [Asterisk (*) Operator](#)
-* [Context Managers](#)
+* [Multithreading](#Multithreading)
+* [Function Arguments](#Arguments)
+* [Context Managers](#Context)
 ---
 # Modules
 <center> <h1 id="Sys"> SYS Module </h1> </center>
@@ -416,4 +412,51 @@ Output:
     1
     2
     3
+```
+
+[Back to Index](#)
+<center> <h1 id="Multithreading"> Multithreading </h1> </center>
+A thread is an entity within a process that can be scheduled for execution. Also, it is the smallest unit of processing that can be performed in an OS (Operating System). In simple words, a thread is a sequence of such instructions within a program that can be executed independently of other code. For simplicity, you can assume that a thread is simply a subset of a process!
+
+**Multithreading** is defined as the ability of a processor to execute multiple threads concurrently.
+```python
+from concurrent.futures import ThreadPoolExecutor
+
+with ThreadPoolExecutor() as executor:
+    executor.map(function, iterable)
+```
+
+[Back to Index](#)
+<center> <h1 id="Arguments"> Function Arguments </h1> </center>
+A parameter with an * in a function means you can pass any number of positional arguments.
+
+A paratemer with two ** means you can pass any number of kewyword arguments to the function.
+
+```python
+Input:
+    def greeting(*args, **kwargs):
+        for arg in args:
+            print(f'Hello{arg}')
+
+    greeting('tom','bob','tim')
+
+Output:
+    Hello, tom
+    Hello, bob
+    Hello, tim
+
+```
+[Back to Index](#)
+<center> <h1 id="Context"> Context Managers </h1> </center>
+Context managers allow you to automatically handle the setup and teardown phases whenever you’re dealing with external resources or with operations that require those phases.
+
+One common problem you’ll face in programming is how to properly manage external resources, such as files, locks, and network connections. Sometimes, a program will retain those resources forever, even if you no longer need them. This kind of issue is called a memory leak because the available memory gets reduced every time you create and open a new instance of a given resource without closing an existing one.
+
+```python
+with expression as target_var:
+    do_something(target_var)
+
+#Example:
+with open("hello.txt", mode="w") as file:
+    file.write("Hello, World!") 
 ```
