@@ -54,19 +54,86 @@ Output:
 A Regular Expression (RegEx) is a sequence of characters that defines a search pattern.  
 
 <br/>
-MetaCharacters: are characters that are interpreted in a special way by a RegEx engine.
 
-* []  Square brackets: Square brackets specifies a set of characters you wish to match.
-* .  Period: A period matches any single character (except newline '\n').
-* ^  Caret: The caret symbol ^ is used to check if a string starts with a certain character.
-* \$  Dollar: The dollar symbol $ is used to check if a string ends with a certain character.
-* \* Star: The star symbol * matches zero or more occurrences of the pattern left to it.
-* \+ Plus: The plus symbol + matches one or more occurrences of the pattern left to it.
+## MetaCharacters 
+MetaCharacters are characters that are interpreted in a special way by a RegEx engine.
 
+| MetaCharacter     | Description  |Example   |
+|:------------------|:-------------|:---------|
+| **[]  Square brackets**: |Square brackets specifies a set of characters you wish to match. You can also specify a range of characters using - inside square brackets. You can complement (invert) the character set by using caret ^ symbol at the start of a square-bracket. [a-e] is the same as [abcde] [1-4] is the same as [1234] [^abc] means any character except a or b or c. | "[a-m]"
+| **.  Period**: | A period matches any single character (except newline '\n'). | "he..o"
+| **^  Caret**: | The caret symbol ^ is used to check if a string starts with a certain character. | "^hello"
+| **\$  Dollar**: |The dollar symbol $ is used to check if a string ends with a certain character. | "planet$"
+| **\* Star**: |The star symbol * matches zero or more occurrences of the pattern left to it. | "he.*o"
+| **\+ Plus**: |The plus symbol + matches one or more occurrences of the pattern left to it. | "he.+o"
+| **\? Question Mark**: |The question mark symbol ? matches zero or one occurrence of the pattern left to it. | "he.?o"
+| **\{} Braces**: |Consider this code: {n,m}. This means at least n, and at most m repetitions of the pattern left to it. | "he.{2}o"
+| **\| Alternation**: |Vertical bar is used as an 'or' operator | "falls\|stays"
+| **() Group**: |Parentheses () is used to group sub-patterns. For example, (a\|b\|c)xz match any string that matches either a or b or c followed by xz | "(a\|b\|c)xz"
+| **\\ Backslash**: |Backlash \ is used to escape various characters including all metacharacters. For example, \$a match if a string contains \$ followed by a. Here, $ is not interpreted by a RegEx engine in a special way. | "\d"
 
+## Special Sequences 
+A special sequence is a \\ followed by one of the characters in the list below, and has a special meaning.
+
+| Special Sequences   | Description   |
+|:--------------------|:--------------|
+|**\\A** | Matches if the specified characters are at the start of a string.                            
+|**\\b** | Matches if the specified characters are at the beginning or end of a word.                            
+|**\\B** | Opposite of \b. Matches if the specified characters are not at the beginning or end of a word.                            
+|**\\d** | Matches any decimal digit. Equivalent to [0-9]                           
+|**\\D** | Matches any non-decimal digit. Equivalent to [^0-9]                            
+|**\\s** | Matches where a string contains any whitespace character. Equivalent to [      \t\n\r\f\v].                            
+|**\\S** |  Matches where a string contains any non-whitespace character. Equivalent to [^ \t\n\r\f\v].                           
+|**\\w** |  Matches any alphanumeric character (digits and alphabets). Equivalent to [a-zA-Z0-9_]. By the way, underscore _ is also considered an alphanumeric character.                           
+|**\\W** | Matches any non-alphanumeric character. Equivalent to [^a-zA-Z0-9_]                            
+|**\\Z** | Matches if the specified characters are at the end of a string.  
+
+<br/>
+
+**Common functions:**
 ```python
-
 import re
+
+re.findall()
+# Returns a list containing all matches
+
+Input:
+    txt = "The rain in Spain"
+    x = re.findall("ai", txt)
+    print(x)
+Output:
+    ['ai', 'ai']
+
+re.search()
+# Returns a Match object if there is a match anywhere in the string. If there is more than one match, only the first occurrence of the match will be returned
+
+Input:
+    txt = "The rain in Spain"
+    x = re.search("\s", txt)
+
+    print("The first white-space character is located in position:", x.start()) 
+Output:
+    The first white-space character is located in position: 3
+
+re.split()
+# Returns a list where the string has been split at each match
+
+Input: 
+    txt = "The rain in Spain"
+    x = re.split("\s", txt)
+    print(x)
+Output:
+    ['The', 'rain', 'in', 'Spain']
+
+re.sub()
+# Replaces one or many matches with a string
+
+Input:
+    txt = "The rain in Spain"
+    x = re.sub("\s", "9", txt)
+    print(x)
+Output:
+    The9rain9in9Spain
 ```
 
 # Data Types
