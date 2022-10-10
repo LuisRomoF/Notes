@@ -48,7 +48,22 @@ Input:
 
 Output:
     #time it took to run
-    
+```
+Timeit flags and magic commands
+Flags:
+* -r: number of runs
+* -n: number of loops
+```python
+###
+
+#Run Timeit over one or multiple lines of code using magic commands
+# flags here mean 2 runs 10 loops each
+%timeit -r2 -n10 range(0,10,2)
+
+%%time it
+l = []
+for i in range(10):
+    l.append(i)   
 ```
 <center> <h1 id="Regex"> Regular Expression </h1> </center>
 A Regular Expression (RegEx) is a sequence of characters that defines a search pattern.  
