@@ -2,9 +2,12 @@
 
 # Index
 ### Modules
+* [line_profiler Module](#line_prof)
 * [Sys Module](#Sys)
 * [Timeit Module](#Timeit)
-* [Regular Expression](#Regex) 
+* [Regular Expression](#Regex)
+* [Itertools](#itertools) 
+* [Numpy]((#numpy))
 ### Data types
 * [Lists](#Lists)
 * [Tuples](#Tuples)
@@ -23,6 +26,49 @@
 * [Context Managers](#Context)
 ---
 # Modules
+<center> <h1 id="line_prof"> line_profiler Module </h1> </center>
+This modules is used to analyze the time your code takes to run line by line.
+
+```python
+# ========== Input ==============
+def convert_units(heroes, heights, weights):
+
+    new_hts = [ht * 0.39370  for ht in heights]
+    new_wts = [wt * 2.20462  for wt in weights]
+
+    hero_data = {}
+
+    for i,hero in enumerate(heroes):
+        hero_data[hero] = (new_hts[i], new_wts[i])
+
+    return hero_data
+
+%load_ext line_profiler
+# -f flag stands for function
+%lprun -f convert_units convert_units(heroes,hts,wts)
+
+# ========== Output ==============
+Timer unit: 1e-06 s
+
+Total time: 0.001486 s
+File: <ipython-input-1-2ae8c0194a47>
+Function: convert_units at line 1
+
+Line #      Hits         Time  Per Hit   % Time  Line Contents
+==============================================================
+     1                                           def convert_units(heroes, heights, weights):
+     2                                           
+     3         1        233.0    233.0     15.7      new_hts = [ht * 0.39370  for ht in heights]
+     4         1        224.0    224.0     15.1      new_wts = [wt * 2.20462  for wt in weights]
+     5                                           
+     6         1          2.0      2.0      0.1      hero_data = {}
+     7                                           
+     8       481        445.0      0.9     29.9      for i,hero in enumerate(heroes):
+     9       480        581.0      1.2     39.1          hero_data[hero] = (new_hts[i], new_wts[i])
+    10                                                   
+    11         1          1.0      1.0      0.1      return hero_data    
+```
+
 <center> <h1 id="Sys"> SYS Module </h1> </center>
 
 ```python
@@ -150,6 +196,15 @@ Input:
 Output:
     The9rain9in9Spain
 ```
+<center> <h1 id="itertools"> Itertools </h1> </center>
+
+```python
+Input:
+
+Output:
+    
+```
+[Back to Index](#)
 
 # Data Types
 [Back to Index](#)
@@ -246,8 +301,13 @@ myset.clear()
 #Union, intersection and difference
 myset.union(other_set)
 myset.intersection(other_set)
-myset.symmetric_difference(other_set) #Returns outer join
+myset.difference(other_set)
+myset.symmetric_difference(other_set) #Returns the elements that are not shared between sets
 
+# Checking set membership
+a = set(['luis','memo','rob'])
+
+print('luis' in a) #This will print TRUE
 ```
 
 [Back to Index](#)
