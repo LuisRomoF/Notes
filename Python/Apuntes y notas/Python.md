@@ -7,7 +7,8 @@
 * [Timeit Module](#Timeit)
 * [Regular Expression](#Regex)
 * [Itertools](#itertools) 
-* [Numpy]((#numpy))
+* [Numpy]((#Numpy))
+* [BeautifulSoup](#BeautifulSoup)
 ### Data types
 * [Lists](#Lists)
 * [Tuples](#Tuples)
@@ -202,6 +203,33 @@ Output:
 Input:
 
 Output:
+    
+```
+[Back to Index](#)
+
+<center> <h1 id="Numpy"> Numpy </h1> </center>
+
+```python
+Input:
+
+Output:
+    
+```
+[Back to Index](#)
+
+<center> <h1 id="BeautifulSoup"> BeautifulSoup </h1> </center>
+
+```python
+from bs4 import BeautifulSoup
+
+with open('file.html','r') as html_file:
+    content = html_file.read()
+    soup = BeautifulSoup(content, 'lxml')
+
+# Find first matching element
+tags = soup.find('h5')
+# Find all matching elements 
+tags = soup.find_all('h5') 
     
 ```
 [Back to Index](#)
