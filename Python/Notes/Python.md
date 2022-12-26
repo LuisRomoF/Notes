@@ -6,7 +6,8 @@
 * [Sys Module](#Sys)
 * [Timeit Module](#Timeit)
 * [Regular Expression](#Regex)
-* [Itertools](#itertools) 
+* [Itertools](#itertools)
+* [Collections](#Collections) 
 * [Numpy]((#Numpy))
 * [BeautifulSoup](#BeautifulSoup)
 ### Data types
@@ -73,28 +74,28 @@ Line #      Hits         Time  Per Hit   % Time  Line Contents
 <center> <h1 id="Sys"> SYS Module </h1> </center>
 
 ```python
-Input:
-    import sys
-    sys.getsizeof(,'bytes')
+# ========== Input ==============
+import sys
+sys.getsizeof(,'bytes')
 
-Output:
-    n bytes
+# ========== Output ==============
+n bytes
 ```
 [Back to Index](#)
 <center> <h1 id="Timeit"> Timeit Module </h1> </center>
 
 ```python
-Input:
-    from timeit import default_timer as timer
-    
-    start = timer()
-    #code
-    stop = timer()
-    #The following print statement will return the time it takes to run the code between start and stop
-    print(stop-start)
+# ========== Input ==============
+from timeit import default_timer as timer
 
-Output:
-    #time it took to run
+start = timer()
+#code
+stop = timer()
+#The following print statement will return the time it takes to run the code between start and stop
+print(stop-start)
+
+# ========== Output ==============
+#time it took to run
 ```
 Timeit flags and magic commands
 Flags:
@@ -200,10 +201,52 @@ Output:
 <center> <h1 id="itertools"> Itertools </h1> </center>
 
 ```python
-Input:
+# =========== Input ===========
+pokemon_types = ['Grass','Fire',...]
+from itertools import combinations
+combos_obj = combinations(pokemon_types,2)
+combos = [*combos_obj]
+print(combos)
 
-Output:
-    
+# =========== Output ===========
+ [('Grass','Fire'),('Fire','Grass'),...]   
+```
+[Back to Index](#)
+
+<center> <h1 id="Collections"> Collections </h1> </center>
+
+```python
+# =========== Input ===========
+# Count each element on a collection
+from collections import Counter
+pokemon_types = ['Grass','Fire',...]
+type_counts = Counter(pokemon_types)
+print(type_counts)
+
+# =========== Output ===========
+Counter({'Grass':n,'Fire':n,...})
+```
+[Back to Index](#)
+
+<center> <h1 id="Pandas"> Pandas </h1> </center>
+
+```python
+# =========== Input ===========
+# Iterrows returns each index and the data in each row as the second element
+for i, row in df.iterrows():
+
+# Itertuples returns a namedtuple which is generally more eficient than interrows
+for row_namedtuple in df.itertuples():
+
+# df.apply method is more efficient than looping through a dataframe
+win_percs = dbacks_df.apply(lambda row: calc_win_perc(row['W'], row['G']), axis=1)
+print(win_percs, '\n')
+
+# The most efficient way to do calculations on a Dataframe is using numpy arrays
+# Use the W array and G array to calculate win percentages
+win_percs_np = calc_win_perc(baseball_df['W'].values, baseball_df['G'].values)
+# =========== Output ===========
+
 ```
 [Back to Index](#)
 
@@ -266,12 +309,12 @@ B.append(4)
 * Immutable 
 
 ```python
-Input:
-    my_tuple = ('a','e','p','p')
-    print(my_tuple.count('p'))
+# ========== Input ==============
+my_tuple = ('a','e','p','p')
+print(my_tuple.count('p'))
 
-Output:
-    2
+# ========== Output ==============
+2
 ```
 [Back to Index](#)
 <center> <h1 id="Dictionary"> Dictionary  </h1> </center>
@@ -289,13 +332,13 @@ mydict.values() #Returns a list of values inside the dict
 #Key and Value
 mydict.items() #Returns a lis of key - value pairs
 
-Input:
-    #Access values
-    mydict = {'key1':'valor','key2':2}
-    print(mydict['key2'])
+# ========== Input ==============
+#Access values
+mydict = {'key1':'valor','key2':2}
+print(mydict['key2'])
 
-Output:
-    2
+# ========== Output ==============
+2
 
 #Deleting values
 del mydict['key']
@@ -311,12 +354,12 @@ mydict.pop('key')
 #Create an immutable set
 frozenset()
 
-Input:
-    myset = {1,2,3,4,4}
-    print(myset)
+# ========== Input ==============
+myset = {1,2,3,4,4}
+print(myset)
 
-Output:
-    2,3,1,4 #Is unordered and unique
+# ========== Output ==============
+2,3,1,4 #Is unordered and unique
 
 #Add
 myset.add()
