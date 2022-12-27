@@ -7,8 +7,9 @@
 * [Timeit Module](#Timeit)
 * [Regular Expression](#Regex)
 * [Itertools](#itertools)
-* [Collections](#Collections) 
-* [Numpy]((#Numpy))
+* [Collections](#Collections)
+* [Pandas](#Pandas) 
+* [Numpy](#Numpy)
 * [BeautifulSoup](#BeautifulSoup)
 ### Data types
 * [Lists](#Lists)
