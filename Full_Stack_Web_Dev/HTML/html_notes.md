@@ -5,6 +5,7 @@ At the top there always should be a Doctype declaration. It tells the browser wh
 
 ```html
 <!DOCTYPE html>
+<!-- this is a comment -->
 this defines the language for the file.
 <html lang="en">
     <head> 
