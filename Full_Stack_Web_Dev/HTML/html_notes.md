@@ -96,3 +96,30 @@ External
     </head>
 </html>
 ```
+## Div Tag
+The div tag defines a division or a section in an HTML document.
+The div tag is used as a container for HTML elements - which is then styled with CSS or manipulated with JavaScript.
+The div tag is easily styled by using the class or id attribute.
+<br>
+Any sort of content can be put inside the div tag. 
+```html
+<html>
+<head>
+<style>
+.myDiv {
+  border: 5px outset red;
+  background-color: lightblue;
+  text-align: center;
+}
+</style>
+</head>
+<body>
+
+<div class="myDiv">
+  <h2>This is a heading in a div element</h2>
+  <p>This is some text in a div element.</p>
+</div>
+
+</body>
+</html>
+```
