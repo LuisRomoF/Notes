@@ -132,4 +132,37 @@ h1{
     text-align: center
 }
 ```
+## Combining Selectors
+```css
+/*this would apply the style to all the h1 and h2 elements*/
+h1,h2 {
+    color: blue;
+}
+/*this would apply the style to the child paragraph inside the .box class*/
+.box > p {
+    color:blue;
+}
+/*Descendant selector */
+.box li{
+    color:blue;
+}
 
+/*Chaining Selectors: apply where all selector are true. It always starts with the element and the you add other selectors*/
+li.myClass {
+    color:blue;
+}
+```
+## CSS Positioning
+There are 4 different values for the positioning property.
+1. **Static:** This is the default html positioning. 
+2. **Relative:** Position relative to default position. The item is position relative to its default location.
+3. **Absolute:** Position relative to nearest positioned ancestor or top left corner of webpage
+4. **Fixed:** Position relative to top left corner of browser window
+
+```css
+.myclass {
+    position:relative;
+    top: 200px;
+    left: 200px;
+}
+```
