@@ -166,3 +166,41 @@ There are 4 different values for the positioning property.
     left: 200px;
 }
 ```
+## CSS Display
+The display property specifies the display behavior (the type of rendering box) of an element.
+
+In HTML, the default display property value is taken from the HTML specifications or from the browser/user default style sheet. The default value in XML is inline, including SVG elements.
+```css
+h1 {display: none;}
+h1 {display: inline;}
+h1 {display: block;}
+h1 {display: inline-block;}
+```
+
+## CSS Layout
+* **Float**: The float property specifies how an element should float.
+    - left - The element floats to the left of its container
+    - right - The element floats to the right of its container
+    - none - The element does not float (will be displayed just where it occurs in the text). This is default
+    - inherit - The element inherits the float value of its parent
+* **Clear**: The clear property specifies what elements can float beside the cleared element and on which side.
+```css
+img {
+    float: left;
+}
+```
+## Responsive Websites
+1. Media Queries: this works as different rule sets depending on the window size and characteristics.
+```css
+@media (max-width: 600px) {
+    /* CSS for screens below or equal to 600 px wide*/
+
+@media (min-width: 600px) and (max-width: 900px){
+    /* Styles for screens between 600px and 900px*/
+}
+
+}
+```
+2. CSS Grid
+3. CSS Flexbox
+4. External Frameworks
