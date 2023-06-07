@@ -23,8 +23,19 @@ We can add js to a html document using the following methods:
 ```js
 // here the first element of the document would be the html tag, then a heading which we saved on a variable and modified using the innerHTML function
 var heading = document.firstElementChild.firstElementChild;
+// Inner html will give everything inside the specified tags
 heading.innerHTML = "Good Bye";
+// this only changes the text inside the html
+heading.textContent = "Good Bye";
+
+// manipulating attributes
+element.attributes;
+element.getAttribute("href");
+element.setAttribute("attribute","new attribute value")
 
 // this line searches for the input element and performs the built in click method
 document.querySelector("input").click();
+
+//
+document.querySelector("button").classList.toggle("invisible");
 ```
