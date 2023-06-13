@@ -1,4 +1,6 @@
 # API
+APIs are a set of commands, functions, protocols and objects that programmers can use to créate software or interact with an external system.
+
 APIs act as intermediaries, enabling developers to access the functionality and data of external systems, services, or platforms without needing to understand the underlying implementation details. They provide a standardized way for different software components to interact, facilitating interoperability and integration.
 
 ## Endpoint
@@ -24,3 +26,25 @@ https://example.com/api/v1?contains=word&flag=True
 
 ## Authentication 
 A common way to implement authentification is by using Api Keys which are tied to each individual user. This keys are passed in the url as parameters.
+
+```js
+const express = requiere("express");
+const https = require("https");
+
+const app = express();
+
+app.get("/", function(req, res){
+
+    const url = "https://api.yourapi.org/..."
+
+    http.get(url, function(response){
+        console.log(response);
+
+        response.on("data", function(data){
+            const weatherData = JSON.parse(data)
+        })
+    })
+
+    res.send("server is up and running")
+})
+```

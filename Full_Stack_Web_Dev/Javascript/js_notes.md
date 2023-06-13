@@ -116,3 +116,48 @@ myArray.push(new_element)
 // Remove elements
 myArray.pop()
 ```
+
+## Event Listeners
+```js
+var numberOfButtons = document.querySelectorAll(".myButton").lenght;
+
+for (var i=0; i < numberOfButtons; i++){
+    // here we use an anonymous function to perform actions when clicked
+    document.querySelectorAll(".drum")[i].addEventListener("click",function(){
+        alert("I got clicked!");
+    })
+}
+```
+
+## Objects
+```js
+var myObject = {
+    name: "myName",
+    myBool: true,
+    myInt: 19
+    myColl: ["coll1","coll2"]
+}
+
+// you can call the object properties this way
+alert("My object has the following bool property" + myObject.myBool )
+```
+To generalize this and use it multiple times you can use a **Constructor Function**
+```js
+function myObject (myName,myInt,myBool,myColl){
+    this.myName=myName;
+    this.myInt=myInt;
+    this.myBool=myBool;
+    this.myColl=myColl;
+    // object method
+    this.myMethod = function(){
+        //execute this if myMethod gets called
+    } 
+}
+
+// To initialize the object
+var newObject = new myObject("name",19,true,["coll1","coll2"]);
+```
+
+## Function Types
+* **Higher Order Function:** They take other functions as parameters/inputs
+* **Callback Function:** this are the functions that get passed to a Higher order function
